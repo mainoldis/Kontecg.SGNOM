@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Kontecg.SGNOM.Services</AssemblyName>
+    <RootNamespace>Kontecg</RootNamespace>
+    <PackageId>Kontecg.SGNOM.Services</PackageId>
+    <PackageTags>application framework;domain driven design;sgnom;human resources</PackageTags>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GenerateResourceUsePreserializedResources>True</GenerateResourceUsePreserializedResources>
+    <Description>Sistema de Gestión de Recursos Humanos y Nóminas - Servicios</Description>
+    <!--<OutputPath>..\..\output\Plugins\SGNOM\</OutputPath>-->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kontecg.SGNOM.Core\Kontecg.SGNOM.Core.csproj" />
+    <ProjectReference Include="..\Kontecg.SGNOM.Data\Kontecg.SGNOM.Data.csproj" />
+    <ProjectReference Include="..\Kontecg.Services\Kontecg.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="9.0.7" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.7" />
+    <PackageReference Include="System.Resources.Extensions" Version="9.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="9.0.7" />
+  </ItemGroup>
+</Project>

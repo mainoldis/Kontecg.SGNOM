@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Kontecg.SGNOM.Core</AssemblyName>
+    <RootNamespace>Kontecg</RootNamespace>
+    <PackageId>Kontecg.SGNOM.Core</PackageId>
+    <PackageTags>application framework;domain driven design;sgnom;human resources</PackageTags>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Sistema de Gestión de Recursos Humanos y Nóminas - Modelo de Dominio</Description>
+    <!--<OutputPath>..\..\output\Plugins\SGNOM\</OutputPath>-->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Sources\*.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kontecg.Core\Kontecg.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<localizationDictionary culture="es">
+	<texts>
+		
+		<text name="SGNOM">Recursos Humanos y Nóminas</text>
+		<text name="General">Generales</text>
+		<text name="Organizations">Estructura Empresarial</text>
+		<text name="WorkRelations">Relaciones Laborales</text>
+		<text name="Salary">Salario</text>
+		<text name="Holidays">Vacaciones</text>
+		<text name="SocialSecurity">Seguridad Social</text>
+		<text name="Retentions">Retenciones</text>
+		<text name="Claims">Reclamaciones</text>
+		<text name="Cpl">Evaluación de Desempeño</text>
+		<text name="Documents">Documentos</text>
+		<text name="Balance">Comprobantes</text>
+
+		<text name="Mother">Madre</text>
+		<text name="Father">Padre</text>
+		<text name="Husband">Esposo(a)</text>
+		<text name="Child">Hijo(a)</text>
+		<text name="Brother">Hermano(a)</text>
+		<text name="Nephew">Sobrino(a)</text>
+		<text name="Uncle">Tío(a)</text>
+		<text name="GrandFather">Abuelo(a)</text>
+		<text name="Friend">Amigo(a)</text>
+		<text name="Relative">Pariente</text>
+
+		<text name="EmploymentDocument">Movimiento de Nómina</text>
+		<text name="EmploymentDocuments">Movimientos de Nóminas</text>
+		<text name="EmploymentDocumentTimeline">Movimientos de Nóminas (Línea de tiempo)</text>
+
+		<text name="Organism">Organismo</text>
+		<text name="CompanyName">Empresa</text>
+		<text name="Code">Código</text>
+		<text name="IdentityCard">Carné de identidad</text>
+		<text name="BirthDate">Fecha de nacimiento</text>
+		<text name="FullName">Nombre y Apellidos</text>
+		<text name="Gender">Sexo</text>
+		<text name="Exp">Chapa</text>
+		<text name="Scholarship">Nivel Educacional</text>
+		<text name="CenterCostAcronym">CC</text>
+		<text name="OccupationCategoryAcronym">CO</text>
+		<text name="ComplexityGroup">GS</text>
+		<text name="OccupationCode">Código</text>
+		<text name="OccupationDescription">Cargo</text>
+		<text name="MadeOn">Fecha confección</text>
+		<text name="EffectiveSince">Fecha efectiva</text>
+		<text name="EffectiveUntil">Vencimiento</text>
+		<text name="Contract">Contrato</text>
+		<text name="Type">Tipo</text>
+		<text name="SubType">Subtipo</text>
+		<text name="WorkPlacePaymentCode">Código</text>
+		<text name="WorkPlacePaymentDescription">Área de pago</text>
+		<text name="FirstLevelCode">Código</text>
+		<text name="FirstLevelDisplayName">Área N1</text>
+		<text name="SecondLevelCode">Código</text>
+		<text name="SecondLevelDisplayName">Área N2</text>
+		<text name="ThirdLevelCode">Código</text>
+		<text name="ThirdLevelDisplayName">Área de trabajo</text>
+		<text name="WorkShiftDisplayName">Turno</text>
+		<text name="WorkRegimenDisplayName">Régimen</text>
+		<text name="BaseSalary">Salario escala</text>
+		<text name="Plus">Adiciones</text>
+		<text name="TotalSalary">Salario</text>
+		<text name="RatePerHour">Tarifa</text>
+		<text name="ByAssignment">Designado</text>
+		<text name="ByOfficial">Funcionario</text>
+		<text name="Previous">Antecesor</text>
+		<text name="Period">Período</text>
+		<text name="AverageHoursPerShift">Horas promedio</text>
+		<text name="DisplaySummary">Motivo del movimiento</text>
+		<text name="EmployeeSalaryForm">Forma de salario</text>
+		<text name="Average">Mensual</text>
+		<text name="Royal">Jornalero</text>
+		<text name="Piece">Jornalero a destajo</text>
+		<text name="Yes">Si</text>
+		<text name="No">No</text>
+
+		<text name="ContractType.I">Indeterminado</text>
+		<text name="ContractType.D">Determinado</text>
+
+		<text name="ContractSubType.I">Indeterminado</text>
+		<text name="ContractSubType.A">Adiestrado</text>
+		<text name="ContractSubType.D">Determinado</text>
+		<text name="ContractSubType.P">Prueba</text>
+
+		<text name="EmploymentType.A">Alta</text>
+		<text name="EmploymentType.R">Reubicación</text>
+		<text name="EmploymentType.B">Baja</text>
+
+		<text name="EmploymentSubType.I">Indeterminado</text>
+		<text name="EmploymentSubType.D">Determinado</text>
+		<text name="EmploymentSubType.DI">Indeterminado</text>
+		<text name="EmploymentSubType.MP">Provisional</text>
+		<text name="EmploymentSubType.PMP">Prórroga</text>
+		<text name="EmploymentSubType.FMP">Finalización</text>
+
+		<!-- Mensajes de Error -->
+		<text name="MoreThenOneExpNumber">Existe más de un último movimiento de nómina para el expediente especificado con el mismo empleo.</text>
+		<text name="PersonNotAssociatedWithExp">El expediente no está asociado con la persona correcta.</text>
+
+		
+	</texts>
+</localizationDictionary>

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Kontecg.Launcher": {
+      "commandName": "Project",
+      "commandLineArgs": "--single --directx",
+      "remoteDebugEnabled": false
+    }
+  }
+}

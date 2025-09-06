@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-2 -6 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Layer_1" transform="translate(-2, -6)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <rect x="18" y="16" width="8" height="2" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -5.99999952316284)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <rect x="18" y="12" width="8" height="2" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2.00000047683716, -6.00000047683716)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <circle cx="11" cy="13" r="3" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -6)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <path d="M29, 6L3, 6C2.4, 6 2, 6.5 2, 7L2, 25C2, 25.5 2.4, 26 3, 26L29, 26C29.6, 26 30, 25.5 30, 25L30, 7C30, 6.5 29.6, 6 29, 6zM28, 24L4, 24L4, 8L28, 8L28, 24z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2.00000047683716, -6.00000076293945)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <path d="M14.2, 16.8C13.3, 17.5 12.2, 18 11, 18C9.8, 18 8.7, 17.5 7.8, 16.8C6, 18.5 6, 22 6, 22L16, 22C16, 22 16, 18.5 14.2, 16.8z" fill="#727272" class="Black" />
+    </g>
+  </g>
+</svg>

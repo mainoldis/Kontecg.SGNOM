@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Layer_1" transform="translate(-9.5367431640625E-07, 0)" style="enable-background:new 0 0 32 32">
+    <g id="Calculator">
+      <path d="M29, 0L16, 0L16, 14L30, 14L30, 1C30, 0.5 29.5, 0 29, 0zM28, 8L18, 8L18, 6L28, 6L28, 8z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(0, -9.5367431640625E-07)" style="enable-background:new 0 0 32 32">
+    <g id="Calculator">
+      <path d="M0, 29C0, 29.5 0.5, 30 1, 30L14, 30L14, 16L0, 16L0, 29zM2.8, 20.2L4.2, 18.8L7, 21.6L9.8, 18.8L11.2, 20.2L8.4, 23L11.2, 25.8L9.8, 27.2L7, 24.4L4.2, 27.2L2.8, 25.8L5.6, 23L2.8, 20.2z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(0, 0)" style="enable-background:new 0 0 32 32">
+    <g id="Calculator">
+      <path d="M0, 1L0, 14L14, 14L14, 0L1, 0C0.5, 0 0, 0.5 0, 1zM2, 6L6, 6L6, 2L8, 2L8, 6L12, 6L12, 8L8, 8L8, 12L6, 12L6, 8L2, 8L2, 6z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-9.5367431640625E-07, -9.5367431640625E-07)" style="enable-background:new 0 0 32 32">
+    <g id="Calculator">
+      <path d="M16, 16L16, 30L29, 30C29.5, 30 30, 29.5 30, 29L30, 16L16, 16zM28, 26L18, 26L18, 24L28, 24L28, 26zM28, 22L18, 22L18, 20L28, 20L28, 22z" fill="#FFB115" class="Yellow" />
+    </g>
+  </g>
+</svg>

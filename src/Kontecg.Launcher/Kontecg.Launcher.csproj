@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>App</AssemblyName>
+    <PackageId>Kontecg.Application</PackageId>
+    <PackageTags>application framework;framework;domain driven design</PackageTags>
+    <UserSecretsId>KONTECG-894FDFC1-6482-4A56-926A-3C46C9FE0329</UserSecretsId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <RootNamespace>Kontecg</RootNamespace>
+    <Description>Kontecg - Módulo principal de la aplicación</Description>
+    <ApplicationIcon>..\..\portafolio\K-icon.ico</ApplicationIcon>
+    <OutputPath>..\..\output\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Just for development, removed in production -->
+    <ProjectReference Include="..\Kontecg.SGNOM.Core\Kontecg.SGNOM.Core.csproj" />
+    <ProjectReference Include="..\Kontecg.SGNOM.Data\Kontecg.SGNOM.Data.csproj" />
+    <ProjectReference Include="..\Kontecg.SGNOM.Services\Kontecg.SGNOM.Services.csproj" />
+    <ProjectReference Include="..\Kontecg.SGNOM.Presentation\Kontecg.SGNOM.Presentation.csproj" />
+    <!-- Just for development, removed in production -->
+    <ProjectReference Include="..\Kontecg.WinForms\Kontecg.WinForms.csproj" />
+    <ProjectReference Include="..\Kontecg.Images\Kontecg.Images.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.BonusSkins" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Dashboard.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.CodeAnalysis" Version="24.1.7" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <PackageReference Update="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" />
+  </ItemGroup>
+</Project>

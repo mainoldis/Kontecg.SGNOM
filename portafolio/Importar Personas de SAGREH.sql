@@ -1,0 +1,5 @@
+insert into Kontecg.docs.Persons(CreationTime, IsDeleted, [Name], Surname, Lastname, IdentityCard, Gender, BirthDate)
+select getdate(), 0, UPPER(LTRIM(RTRIM(Nombre))) AS Name, UPPER(LTRIM(RTRIM(Apellido1))) AS Surname, UPPER(LTRIM(RTRIM(Apellido2))) AS Lastname, CI AS IdentityCard, Sexo AS Gender, FechaNac AS BirthDate
+--select UPPER(LTRIM(RTRIM(Nombre))) AS Name, UPPER(LTRIM(RTRIM(Apellido1))) AS Surname, UPPER(LTRIM(RTRIM(Apellido2))) AS Lastname, CI AS IdentityCard, Sexo AS Gender, FechaNac AS BirthDate
+from iAraGlobal_ECG.dbo.PERPersonas left join Kontecg.docs.Persons on Persons.IdentityCard = PERPersonas.CI COLLATE SQL_Latin1_General_CP1_CI_AS
+where IdPersona IN(select distinct Idpersona from iAraGlobal_ECG.dbo.TrbActivos where TrbActivos.FechaInicio >= '20210101') and Persons.Id is null order by Name, Surname, Lastname --for json auto

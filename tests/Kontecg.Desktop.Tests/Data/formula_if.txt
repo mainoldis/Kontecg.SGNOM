@@ -1,0 +1,7 @@
+IF(SCOPE = 1, 
+    CASE(DOCTYPE, 
+        "1": { 
+                WRITE(GETCTA("VACACIONES"), GETSCTA("VACACIONES"), 0, 0, IMP, "Credit");
+                WRITE(CNT, CC, GETEGSTO("VACACIONES"), 0, IMP, "Debit")
+             }
+    ))

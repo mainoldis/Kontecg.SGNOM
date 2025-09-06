@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<localizationDictionary culture="en">
+	<texts>
+		<text name="Identity.UserNotAssociateWithPerson">The user is not associated with a person.</text>
+
+		<text name="Kontecg">Overview</text>
+
+		<text name="KONTECG_AppInfo">{0}, v{1}</text>
+		<text name="KONTECG_MainWindow">KONTECG - {0}</text>
+		<text name="KONTECG_Overview">Integral Software Solution for the Company "Ernesto Che Guevara"<br/>is a platform for the implementation of complementary systems to the production and management process.</text>
+		<text name="Host">Host app</text>
+
+		<text name="SearchControlNullValuePrompt">Search...</text>
+
+		<text name="HOME">HOME</text>
+		<text name="VIEW">VIEW</text>
+		<text name="Modules">Modules</text>
+		<text name="Layout">Layout</text>
+		<text name="Theme">Theme</text>
+		<text name="General">General</text>
+		<text name="Navigation">Navigation</text>
+		<text name="Panel">Panel</text>
+		<text name="SignIn">Sign in</text>
+		<text name="About">About</text>
+		<text name="Open">Open</text>
+		<text name="Collapsed">Collapsed</text>
+		<text name="Off">Off</text>
+		<text name="Menu">Menu</text>
+		<text name="Settings">Settings</text>
+		<text name="Overview">Overview</text>
+
+		<text name="Populating menus...">Populating menus...</text>
+		<text name="Finish">Finishing...</text>
+
+		<text name="MainWindow_Title">Main window</text>
+		<text name="OverviewInfoView_Title">Overview</text>
+		<text name="ExportView_Title">Export</text>
+		<text name="PrintView_Title">Print</text>
+		<text name="SettingsView_Title">Settings</text>
+
+		<text name="XtraMessageBoxOkButtonText">Aceptar</text>
+
+		<text name="IdentityCard">Carné de identidad</text>
+		<text name="BirthDate">Fecha de nacimiento</text>
+		<text name="WorkRelationship">Relación Laboral</text>
+		<text name="FullName">Nombre y Apellidos</text>
+		<text name="Gender">Sexo</text>
+		<text name="Exp">Chapa</text>
+		<text name="Age">Edad</text>
+		<text name="CenterCost">Centro de Costo</text>
+		<text name="CenterCostAcronym">CC</text>
+		<text name="OccupationCode">Código del Cargo</text>
+		<text name="OccupationDescription">Cargo</text>
+		<text name="OccupationResponsibility">Responsabilidad</text>
+		<text name="OccupationCategory">Categoría Ocupacional</text>
+		<text name="OccupationCategoryAcronym">CO</text>
+		<text name="ComplexityGroup">Grupo salarial</text>
+		<text name="MadeOn">Fecha confección</text>
+		<text name="EffectiveSince">Fecha efectiva</text>
+		<text name="EffectiveUntil">Vencimiento</text>
+		<text name="Contract">Contrato</text>
+		<text name="Type">Tipo</text>
+		<text name="SubType">Subtipo</text>
+		<text name="WorkPlacePaymentCode">Código del área de pago</text>
+		<text name="WorkPlacePaymentDescription">Área de pago</text>
+		<text name="FirstLevelDisplayName">Área N1</text>
+		<text name="SecondLevelDisplayName">Área N2</text>
+		<text name="ThirdLevelDisplayName">Área de trabajo</text>
+		<text name="WorkShiftDisplayName">Turno</text>
+		<text name="WorkRegimenDisplayName">Régimen</text>
+		<text name="Salary">Salario escala</text>
+		<text name="Plus">Adiciones</text>
+		<text name="TotalSalary">Salario</text>
+		<text name="RatePerHour">Tarifa</text>
+		<text name="Height">Estatura</text>
+		<text name="Race">Raza</text>
+		<text name="CivilStatus">Estado civil</text>
+		<text name="EyeColor">Ojos</text>
+		<text name="Scholarship">Nivel Educacional</text>
+		<text name="Title">Título</text>
+		<text name="ShirtSize">Camisa</text>
+		<text name="PantsSize">Pantalón</text>
+		<text name="OverolSize">Overol</text>
+		<text name="FootwearSize">Zapatos</text>
+		<text name="Address">Domicilio oficial</text>
+
+		<text name="EmployeeSalaryForm">Forma de salario</text>
+		<text name="Average">Mensual</text>
+		<text name="Royal">Jornalero</text>
+		<text name="Piece">Jornalero a destajo</text>
+
+		<text name="Gender.M">Male</text>
+		<text name="Gender.F">Female</text>
+		<text name="Gender.O">Other</text>
+
+		<text name="Race.B">White</text>
+		<text name="Race.M">Mixed</text>
+		<text name="Race.N">Black</text>
+		<text name="Race.O">Other</text>
+
+		<text name="EyeColor.Black">Black</text>
+		<text name="EyeColor.Brown">Brown</text>
+		<text name="EyeColor.Blue">Blue</text>
+		<text name="EyeColor.Green">Green</text>
+		<text name="EyeColor.Gray">Gray</text>
+		<text name="EyeColor.Hazelnut">Hazelnut</text>
+		<text name="EyeColor.Other">Other</text>
+
+		<text name="PeriodStatus.Opened">Opened</text>
+		<text name="PeriodStatus.Closed">Closed</text>
+
+		<text name="Summary">Summary</text>
+
+		<text name="YearMonth.January">January</text>
+		<text name="YearMonth.February">February</text>
+		<text name="YearMonth.March">March</text>
+		<text name="YearMonth.April">April</text>
+		<text name="YearMonth.May">May</text>
+		<text name="YearMonth.June">June</text>
+		<text name="YearMonth.July">July</text>
+		<text name="YearMonth.August">August</text>
+		<text name="YearMonth.September">September</text>
+		<text name="YearMonth.October">October</text>
+		<text name="YearMonth.November">November</text>
+		<text name="YearMonth.December">December</text>
+
+		<text name="YearQuarter.First">First</text>
+		<text name="YearQuarter.Second">Second</text>
+		<text name="YearQuarter.Third">Third</text>
+		<text name="YearQuarter.Fourth">Fourth</text>
+
+		<text name="YearHalfyear.First">First</text>
+		<text name="YearHalfyear.Second">Second</text>
+
+		<text name="DayOfWeek.Sunday">Sunday</text>
+		<text name="DayOfWeek.Monday">Monday</text>
+		<text name="DayOfWeek.Tuesday">Tuesday</text>
+		<text name="DayOfWeek.Wednesday">Wednesday</text>
+		<text name="DayOfWeek.Thursday">Thursday</text>
+		<text name="DayOfWeek.Friday">Friday</text>
+		<text name="DayOfWeek.Saturday">Saturday</text>
+
+		<text name="ReviewStatus.ForReview">ForReview</text>
+		<text name="ReviewStatus.Reviewed">Reviewed</text>
+		<text name="ReviewStatus.Confirmed">Confirmed</text>
+		<text name="ReviewStatus.Canceled">Canceled</text>
+
+		<text name="AccountKind.Credit">Credit</text>
+		<text name="AccountKind.Debit">Debit</text>
+		<text name="AccountKind.Memo">Memo</text>
+
+		<text name="Sunday">Sunday</text>
+		<text name="Monday">Monday</text>
+		<text name="Tuesday">Tuesday</text>
+		<text name="Wednesday">Wednesday</text>
+		<text name="Thursday">Thursday</text>
+		<text name="Friday">Friday</text>
+		<text name="Saturday">Saturday</text>
+
+        <text name="InvalidReferenceGroup">The reference used does not exist or is invalid</text>
+        <text name="PendingOperations">There are pending operations for the last period, it cannot be opened '{0}' in '{1}'</text>
+        <text name="OperationFailed">The period opening has failed</text>
+        <text name="FaultedOpenMode">The period opening mode does not allow the operation with the provided parameters</text>
+	</texts>
+</localizationDictionary>

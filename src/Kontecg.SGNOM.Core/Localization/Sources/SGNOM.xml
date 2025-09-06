@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<localizationDictionary culture="en">
+	<texts>
+		<text name="SGNOM">Recurso Humanos y Nóminas</text>
+		<text name="General">Generales</text>
+		<text name="Organizations">Estructura Empresarial</text>
+		<text name="WorkRelations">Relaciones Laborales</text>
+		<text name="Salary">Salario</text>
+		<text name="Holidays">Vacaciones</text>
+		<text name="SocialSecurity">Seguridad Social</text>
+		<text name="Retentions">Retenciones</text>
+		<text name="Claims">Reclamaciones</text>
+		<text name="Cpl">Evaluación de Desempeño</text>
+		<text name="Documents">Documentos</text>
+		<text name="Balance">Comprobantes</text>
+
+		<text name="EmploymentDocument">Movimiento de Nómina</text>
+		<text name="EmploymentDocuments">Movimientos de Nóminas</text>
+		<text name="EmploymentDocumentTimeline">Movimientos de Nóminas (Línea de tiempo)</text>
+
+		<text name="ThirdLevelCode">Código de área</text>
+
+		<!-- Mensajes de Error -->
+		<text name="MoreThenOneExpNumber">Existe más de un último movimiento de nómina para el expediente especificado con el mismo empleo.</text>
+		<text name="PersonNotAssociatedWithExp">El expediente no está asociado con la persona correcta.</text>
+	</texts>
+</localizationDictionary>

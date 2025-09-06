@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Kontecg.Core</AssemblyName>
+    <PackageId>Kontecg.Core</PackageId>
+    <PackageTags>application framework;domain driven design</PackageTags>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <UserSecretsId>KONTECG-894FDFC1-6482-4A56-926A-3C46C9FE0329</UserSecretsId>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Kontecg - Módulo base de la aplicación</Description>
+    <RootNamespace>Kontecg</RootNamespace>
+    <PrivateAssets>All</PrivateAssets>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Sources\*.xml;Net\Mail\EmailTemplates\default.html" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Kontecg.BlobStoring" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.BlobStoring.FileSystem" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Castle.MsAdapter" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Castle.MsLogging" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.AutoMapper" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.MailKit" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Workflows" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.RedisCache" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Hangfire" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Baseline" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Baseline.Ldap" Version="8.1.0-alpha.55" />
+  </ItemGroup>
+  <ItemGroup>
+	<PackageReference Include="AutoMapper.Extensions.EnumMapping" Version="4.1.0" />
+	<PackageReference Include="Hardware.Info" Version="101.0.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7" />
+    <PackageReference Include="NMoneys" Version="7.4.0" />
+    <PackageReference Include="NMoneys.Exchange" Version="4.0.0.1" />
+    <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.6" />
+    <PackageReference Include="OpenTelemetry" Version="1.12.0" />
+    <PackageReference Include="MassTransit" Version="8.2.5" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Kontecg.SGNOM.Presentation</AssemblyName>
+    <RootNamespace>Kontecg</RootNamespace>
+    <PackageId>Kontecg.SGNOM.Presentation</PackageId>
+    <PackageTags>application framework;domain driven design</PackageTags>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Sistema de Gestión de Recursos Humanos y Nóminas - Presentación</Description>
+    <!--<OutputPath>..\..\output\Plugins\SGNOM\</OutputPath>-->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\*.*" Exclude="bin\**;obj\**;@(EmbeddedResource)" />
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kontecg.SGNOM.Services\Kontecg.SGNOM.Services.csproj" />
+    <ProjectReference Include="..\Kontecg.WinForms\Kontecg.WinForms.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Dashboard.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.CodeAnalysis" Version="24.1.7" />
+  </ItemGroup>
+</Project>

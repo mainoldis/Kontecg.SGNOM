@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\configureawait.props" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Kontecg.WinForms</AssemblyName>
+    <PackageId>Kontecg.WinForms</PackageId>
+    <PackageTags>application framework;domain driven design;devexpress;winforms</PackageTags>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Kontecg - Módulo de la aplicación para la integración con DevExpress y WinForms.</Description>
+    <RootNamespace>Kontecg</RootNamespace>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <InformationalVersion>0.1.0-alpha.206+Branch.develop.Sha.786cb4abad273ad22dc2aad35a512eb4173c262b</InformationalVersion>
+    <Version>0.1.0-alpha.206</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Sources\*.xml;Resources\*.*;Resources\Modules\*.*" Exclude="bin\**;obj\**;@(EmbeddedResource)" />
+    <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kontecg.Core\Kontecg.Core.csproj" />
+    <ProjectReference Include="..\Kontecg.Services\Kontecg.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Document.Processor" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.Dashboard.Design" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Scaffolding.Core" Version="24.1.7" />
+    <PackageReference Include="DevExpress.Win.CodeAnalysis" Version="24.1.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

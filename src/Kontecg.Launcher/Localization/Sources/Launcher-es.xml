@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<localizationDictionary culture="es">
+	<texts>
+		<text name="OrganizationUnits">Unidades de organización</text>
+		<text name="OrganizationUnitsHeaderInfo">Use unidades de organización para organizar usuarios e instancias</text>
+		<text name="OrganizationTree">Organigrama</text>
+		<text name="Members">Miembros</text>
+		<text name="SelectAnOrganizationUnitToSeeMembers">Seleccione una unidad organizativa para ver sus miembros.</text>
+		<text name="OrganizationUnitDeleteWarningMessage">Está seguro que desea borrar la unidad organizativa {0}?</text>
+		<text name="AddSubUnit">Agregar sub unidad</text>
+		<text name="AddMember">Agregar miembro</text>
+		<text name="SuccessfullyAdded">Añadido exitosamente</text>
+		<text name="NoOrganizationUnitDefinedYet">No existen aún unidades organizativas.</text>
+		<text name="OrganizationUnitMoveConfirmMessage">Por favor, confirme mover {0} debajo de {1}.</text>
+		<text name="Root">Raíz</text>
+		<text name="SuccessfullyMoved">Movido con éxito.</text>
+	</texts>
+</localizationDictionary>

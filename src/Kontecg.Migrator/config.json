@@ -1,0 +1,45 @@
+{
+  "ConnectionStrings": {
+    "Default": "Server=127.0.0.1; Database=Kontecg; User Id=sql; Password=sql;TrustServerCertificate=true;",
+    "Workflow": "Server=172.22.16.140; Database=Kontecg; User Id=sql; Password=sql;TrustServerCertificate=true;",
+    "SGNOM": "Server=127.0.0.1; Database=SGNOM; User Id=sql; Password=sql;TrustServerCertificate=true;"
+  },
+  "App": {
+    "ClientId": null,
+    "BackgroundJobs": {
+      "IsJobExecutionEnabled": true,
+      "IgnoredRecurrentJobs": false
+    },
+    "RabbitMq": {
+      "Host": "127.0.0.1"
+    },
+    "RedisCache": {
+      "ConnectionString": "127.0.0.1",
+      "DatabaseId": -1
+    },
+    "AuditLog": {
+      "AutoDeleteExpiredLogs": {
+        "IsEnabled": false,
+        "ExcelBackup": {
+          "IsEnabled": false,
+          "FilePath": "Data/AuditLogsBackups/"
+        }
+      }
+    }
+  },
+  "LocaleMappings": {
+    "Moment": [
+      {
+        "from": "zh-Hans",
+        "to": "zh-cn"
+      }
+    ]
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

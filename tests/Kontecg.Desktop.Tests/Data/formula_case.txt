@@ -1,0 +1,68 @@
+CASE(FC, 
+    "C_ANIR":
+        CASE(SCOPE,
+            1:
+                CASE(DOCTYPE, 
+                    "25": IF(TRANS = "1", { 
+                                WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                WRITEFULL("ANIR", IMP, "Debit")
+                        }),
+                    "7": IF(CAJA,
+                            CASE(TRANS, 
+                                "2": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("EXTNOM", IMP, "Debit")
+                                }, 
+                                "3": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("SAL_NREC", IMP, "Debit")
+                                }, 
+                                "4": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("ANIR", IMP, "Debit")
+                                }))
+                ),
+            2:
+                CASE(DOCTYPE, 
+                    "25": IF(TRANS = "1", { 
+                                WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Credit");
+                                WRITE(GETCTA("ANIR"), GETSCTA("ANIR"), 0, EXP, IMP, "Debit")
+                        }),
+                    "7": IF(CAJA,
+                            CASE(TRANS, 
+                                "2": {
+                                    WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Credit");
+                                    WRITE(GETCTA("EXTNOM"), GETSCTA("EXTNOM"), 0, , EXP, IMP, "Debit")
+                                }, 
+                                "3": {
+                                    WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Credit");
+                                    WRITE(GETCTA("SAL_NREC"), GETSCTA("SAL_NREC"), 0, , EXP, IMP, "Debit")
+                                }, 
+                                "4": {
+                                    WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Credit");
+                                    WRITE(GETCTA("ANIR"), GETSCTA("ANIR"), 0, , EXP, IMP, "Debit")
+                                }))
+                )
+        ),
+    "C_TP504":
+        CASE(SCOPE,
+            1:
+                CASE(DOCTYPE, 
+                    "1": IF(TRANS = "1", { 
+                                WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                IF(!CONTRATO, 
+                                    WRITE(CNT, CC, GETEGSTO("SALARIO"), 0, IMP, "Debit"), 
+                                    WRITE(CNT, CC, GETEGSTO("SALARIO_CONTRATOS"), 0, IMP, "Debit")
+                                );
+                                WRITEFULL("VACACIONES", IMPVAC, "Credit");
+                                WRITE(CNT, CC, GETEGSTO("VACACIONES"), 0, IMPVAC, "Debit");
+                                WRITEFULL("CTA_440_8", APORTESEGSOC, "Credit");
+                                WRITEFULL("SEGSOC12", APORTESEGSOC, "Debit");
+                                WRITEFULL("CTA_440_6", APORTEFUERZALABORAL, "Credit");
+                                WRITEFULL("FT25", APORTEFUERZALABORAL, "Debit");
+                                WRITEFULL("SUBSIDIO", PROVISIONSEGSOC, "Credit");
+                                WRITEFULL("GPS15", PROVISIONSEGSOC, "Debit")
+                        })
+                )
+        )
+)

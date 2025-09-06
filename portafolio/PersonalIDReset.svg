@@ -1,0 +1,43 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-2 -6 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Layer_1" transform="translate(-2, -6)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <rect x="18" y="16" width="8" height="2" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -5.99999952316284)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <rect x="18" y="12" width="8" height="2" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2.00000047683716, -6.00000047683716)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <circle cx="11" cy="13" r="3" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -6)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <path d="M29, 6L3, 6C2.4, 6 2, 6.5 2, 7L2, 25C2, 25.5 2.4, 26 3, 26L29, 26C29.6, 26 30, 25.5 30, 25L30, 7C30, 6.5 29.6, 6 29, 6zM28, 24L4, 24L4, 8L28, 8L28, 24z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2.00000047683716, -6.00000076293945)" style="enable-background:new 0 0 32 32">
+    <g id="PersonalID">
+      <path d="M14.2, 16.8C13.3, 17.5 12.2, 18 11, 18C9.8, 18 8.7, 17.5 7.8, 16.8C6, 18.5 6, 22 6, 22L16, 22C16, 22 16, 18.5 14.2, 16.8z" fill="#727272" class="Black" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(14.0000003814697, 10.0000003814697)" style="enable-background:new 0 0 16 16">
+    <g id="Clear_1_">
+      <path d="M15.7, 4.4L11.7, 0.4C11.3, 0 10.5, 0 10.1, 0.4L4.1, 6.4L9.7, 12L15.7, 6C16.1, 5.5 16.1, 4.8 15.7, 4.4z" fill="#D11C1C" class="Red" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(14, 10)" style="enable-background:new 0 0 16 16">
+    <g id="Clear_1_">
+      <path d="M2.9, 7.5L0.3, 10C-0.1, 10.4 -0.1, 11.2 0.3, 11.6L4.3, 15.6C4.7, 16 5.5, 16 5.9, 15.6L8.5, 13L2.9, 7.5z" fill="#1177D7" class="Blue" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(13.9999993171692, 9.99999889297485)" style="enable-background:new 0 0 16 16">
+    <g id="Clear_1_">
+      <rect x="5.5" y="5.7" width="1.6" height="8" fill="#FFFFFF" class="White" transform="matrix(0.7071, -0.7071, 0.7071, 0.7071, -5.0285, 7.2907)" />
+    </g>
+  </g>
+</svg>

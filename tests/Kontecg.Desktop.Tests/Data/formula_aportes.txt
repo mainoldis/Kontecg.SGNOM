@@ -1,0 +1,80 @@
+CASE(FC,
+    "C_IMP_CSS":
+        CASE(SCOPE, 
+            1: 
+                CASE(DOCTYPE = "1" | DOCTYPE = "2" | DOCTYPE = "3" | DOCTYPE = "11" | DOCTYPE = "13" | DOCTYPE = "14" | DOCTYPE = "15" | DOCTYPE = "16" | DOCTYPE = "20"  | DOCTYPE = "25": IF(TRANS = "1", {
+                        WRITEFULL("NOMPAGAR", IMP, "Debit");
+                        WRITEFULL("R_SEGSOC", IMP, "Credit");
+                    }), 
+                    DOCTYPE = "7": 
+                        IF(CAJA,
+                            CASE(TRANS, 
+                                "2": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("EXTNOM", IMP, "Debit");
+                                }, 
+                                "3": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("SAL_NREC", IMP, "Debit");
+                                }, 
+                                "4": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("R_SEGSOC", IMP, "Debit");
+                                }
+                            )
+                        )
+                )
+        ),
+    "C_IMP_ING":
+        CASE(SCOPE, 
+            1: 
+                CASE(DOCTYPE = "1" | DOCTYPE = "2" | DOCTYPE = "3" | DOCTYPE = "11" | DOCTYPE = "13" | DOCTYPE = "14" | DOCTYPE = "15" | DOCTYPE = "16" | DOCTYPE = "20"  | DOCTYPE = "25": IF(TRANS = "1", {
+                        WRITEFULL("NOMPAGAR", IMP, "Debit");
+                        WRITEFULL("R_IMPING", IMP, "Credit");
+                    }), 
+                    DOCTYPE = "7": 
+                        IF(CAJA,
+                            CASE(TRANS, 
+                                "2": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("EXTNOM", IMP, "Debit");
+                                }, 
+                                "3": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("SAL_NREC", IMP, "Debit");
+                                }, 
+                                "4": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("R_IMPING", IMP, "Debit");
+                                }
+                            )
+                        )
+                )
+        ),
+     "C_DL92":
+        CASE(SCOPE, 
+            1: 
+                CASE(DOCTYPE = "1" | DOCTYPE = "2" | DOCTYPE = "3" | DOCTYPE = "11" | DOCTYPE = "13" | DOCTYPE = "14" | DOCTYPE = "15" | DOCTYPE = "16" | DOCTYPE = "20"  | DOCTYPE = "25": IF(TRANS = "1", {
+                        WRITEFULL("NOMPAGAR", IMP, "Debit");
+                        WRITEFULL("R_RESMAT", IMP, "Credit");
+                    }), 
+                    DOCTYPE = "7": 
+                        IF(CAJA,
+                            CASE(TRANS, 
+                                "2": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("EXTNOM", IMP, "Debit");
+                                }, 
+                                "3": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("SAL_NREC", IMP, "Debit");
+                                }, 
+                                "4": {
+                                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                                    WRITEFULL("R_RESMAT", IMP, "Debit");
+                                }
+                            )
+                        )
+                )
+        )
+)

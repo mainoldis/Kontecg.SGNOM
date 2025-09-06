@@ -1,0 +1,12 @@
+IF(FC = "C_PVAC", 
+	CASE(SCOPE, 
+		1: CASE(
+				(DOCTYPE = "3" | DOCTYPE = "20" | DOCTYPE = "25") & TRANS = "1": { WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Credit"); WRITE(GETCTA("VACACIONES"), GETSCTA("VACACIONES"), 0, 0, IMP, "Debit")}, 
+				DOCTYPE = "7" & CAJA:
+					CASE(TRANS, 
+                        "2": { WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Debit"); WRITE(GETCTA("EXTNOM"), GETSCTA("EXTNOM"), 0, 0, IMP, "Credit") },  
+                        "3": { WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Debit"); WRITE(GETCTA("SAL_NREC"), GETSCTA("SAL_NREC"), 0, 0, IMP, "Credit") }, 
+                        "4": { WRITE(GETCTA("NOMPAGAR"), GETSCTA("NOMPAGAR"), 0, 0, IMP, "Debit"); WRITE(GETCTA("VACACIONES"), GETSCTA("VACACIONES"), 0, 0, IMP, "Credit")} )),
+		2: CASE(
+				(DOCTYPE = "3" | DOCTYPE = "20" | DOCTYPE = "25") & TRANS = "1": { WRITEFULL("VACACIONES", IMP, "Credit"); WRITE(CNT, CC, GETEGSTO("VACACIONES"), EXP, IMP, "Debit")}))
+)

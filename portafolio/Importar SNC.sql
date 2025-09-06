@@ -1,0 +1,7 @@
+INSERT INTO SGNOM.sal.payment_histogram([DocumentDefinitionId],[PersonId],[GroupId],[Year],[Month],[Since],[Until],[WorkedDays],[SalaryPaymentReceived],[SickLeaveDays],[SickLeavePaymentReceived],[Holidays],[HolidaysPaymentReceived],[SalaryPlusPaymentReceived],[BonusPaymentReceived],[CertifiedDays],[Currency],[Observation],[Status],[CompanyId],[CreationTime])
+SELECT 37 AS DocumentDefinitionId, r.PersonId, r.GroupId, YEAR(GEN_PERIODOSPAGO.Periodo) AS Year, MONTH(GEN_PERIODOSPAGO.Periodo) AS Month, GEN_PERIODOSPAGO.FechaInicio AS Since, GEN_PERIODOSPAGO.FechaFin AS Until, SNC_DATOSNC.TiempoTotal AS WorkedDays, 
+       SNC_DATOSNC.SalarioDevengado AS SalaryPaymentReceived, 0 AS SickLeaveDays, SNC_DATOSNC.ImporteSubsidio AS SickLeavePaymentReceived, 0 AS Holidays, SNC_DATOSNC.ImporteVacaciones AS HolidaysPaymentReceived, 
+       SNC_DATOSNC.ImporteEstimulacion AS SalaryPlusPaymentReceived, ISNULL(SNC_DATOSNC.PagoEficienciaE, 0) AS BonusPaymentReceived, SNC_DATOSNC.TiempoTotal AS CertifiedDays, 'CUP' AS Currency, ISNULL(SNC_DATOSNC.Observaciones,'') AS Observation, 'Made' AS [Status], 1 AS CompanyId, getdate() AS CreationTime
+FROM   SNC_DATOSNC INNER JOIN GEN_PERIODOSPAGO ON SNC_DATOSNC.IdPeriodo = GEN_PERIODOSPAGO.IdPeriodo
+	   INNER JOIN SGNOM.rel.employment_documents r ON SNC_DATOSNC.IdEmpleo = r.GroupId
+--WHERE  (SNC_DATOSNC.IdEmpleo = 'edbd1e8e-a062-e311-93f8-c89cdced3a77')

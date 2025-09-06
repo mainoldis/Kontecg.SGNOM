@@ -1,0 +1,28 @@
+IF(FC="C_PPEN", 
+    CASE(SCOPE, 
+        1: 
+            CASE(DOCTYPE, 
+                "4": {
+                    WRITEFULL("R_PALIM", IMP, "Debit");
+                    WRITEFULL("NOMPAGAR", IMP, "Credit");
+                }, 
+                "8": 
+                    IF(CAJA,
+                        CASE(TRANS, 
+                            "2": {
+                                WRITEFULL("NOMPAGAR", IMP, "Debit");
+                                WRITEFULL("EXTNOM", IMP, "Credit");
+                            }, 
+                            "3": {
+                                WRITEFULL("NOMPAGAR", IMP, "Debit");
+                                WRITEFULL("R_PALIM", IMP, "Credit");
+                            }, 
+                            "4": {
+                                WRITEFULL("NOMPAGAR", IMP, "Debit");
+                                WRITEFULL("R_PALIM", IMP, "Credit");
+                            }
+                        )
+                    )
+            )
+    )
+)
