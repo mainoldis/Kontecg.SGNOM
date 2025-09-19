@@ -7,7 +7,11 @@ namespace Kontecg.Services
     {
         IList<Module> Modules { get; }
 
+        Module GetModule(string moduleType);
+
         Module GetModule(Module moduleType);
+
+        Module GetModuleType(string moduleType, ViewCategory? category = null);
 
         Module GetModuleType(Module moduleType, ViewCategory? category = null);
 

@@ -30,18 +30,19 @@
     <EmbeddedResource Include="Localization\Sources\*.xml;Net\Mail\EmailTemplates\default.html" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Kontecg.BlobStoring" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.BlobStoring.FileSystem" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.MsAdapter" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.MsLogging" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.AutoMapper" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.MailKit" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Workflows" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.RedisCache" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Hangfire" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Baseline" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Baseline.Ldap" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.BlobStoring" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.BlobStoring.FileSystem" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.MsAdapter" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.MsLogging" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.AutoMapper" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.MailKit" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.MassTransit" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Workflows" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.RedisCache" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Hangfire" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Baseline" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Baseline.Ldap" Version="8.2.0-alpha.51" />
   </ItemGroup>
   <ItemGroup>
 	<PackageReference Include="AutoMapper.Extensions.EnumMapping" Version="4.1.0" />
@@ -50,11 +51,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7" />
     <PackageReference Include="NMoneys" Version="7.4.0" />
-    <PackageReference Include="NMoneys.Exchange" Version="4.0.0.1" />
     <PackageReference Include="TimePeriodLibrary.NET" Version="2.1.6" />
     <PackageReference Include="OpenTelemetry" Version="1.12.0" />
-    <PackageReference Include="MassTransit" Version="8.2.5" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
-    <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
   </ItemGroup>
 </Project>

@@ -177,7 +177,6 @@
             // 
             imageCollection.Images.AddRange(new DevExpress.Utils.DefaultImage[] { new DevExpress.Utils.DefaultImage(new DevExpress.Utils.LocalImageLocator("documentmap_16x16.png")), new DevExpress.Utils.DefaultImage(new DevExpress.Utils.LocalImageLocator("documentmap_16x16.png")), new DevExpress.Utils.DefaultImage(new DevExpress.Utils.LocalImageLocator("treeview_16x16.png")), new DevExpress.Utils.DefaultImage(new DevExpress.Utils.LocalImageLocator("new_16x16.png")), new DevExpress.Utils.DefaultImage(new DevExpress.Utils.LocalImageLocator("snapemptytablerowseparator_16x16.png")) });
             imageCollection.Owner = this;
-            imageCollection.Stream = (DevExpress.Utils.DPIAwareImageCollectionStreamer)resources.GetObject("imageCollection.Stream");
             // 
             // splitContainerControl1
             // 

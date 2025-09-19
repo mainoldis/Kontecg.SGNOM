@@ -1,5 +1,4 @@
-﻿#if false
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,13 +16,16 @@ using Kontecg.ViewModels;
 
 namespace Kontecg.Presenters
 {
-    public abstract class CollectionPresenter<TEntityDto, TPrimaryKey, TService>
-        : BasePresenter<CollectionViewModel<TEntityDto, TPrimaryKey, TService>>
-        where TEntityDto : EntityDto<TPrimaryKey>
-        where TService : class
+    public abstract class CollectionPresenter<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>
+        : BasePresenter<EntitiesViewModel<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>>
+        where TEntityDto : class, IEntityDto<TPrimaryKey>
+        where TGetAllInput : IPagedResultRequest, ISortedResultRequest, new()
+        where TCreateInput : class, IEntityDto<TPrimaryKey>
+        where TUpdateInput : class, IEntityDto<TPrimaryKey>
+        where TGetInput : IEntityDto<TPrimaryKey>, new()
+        where TDeleteInput : class, IEntityDto<TPrimaryKey>
     {
         private readonly Action<int> _updateUIAction;
-        private readonly KontecgViewModelBase _viewModel;
         private GridControl _gridControlCore;
         private GridView _gridViewCore;
         private LayoutView _layoutViewCore;
@@ -33,7 +35,7 @@ namespace Kontecg.Presenters
         private BarCheckItem _biAddColumns;
         private int _lockFocusedRowChanged = 0;
 
-        protected CollectionPresenter(GridControl gridControl, CollectionViewModel<TEntityDto, TPrimaryKey, TService> viewModel, Action<int> updateUIAction)
+        protected CollectionPresenter(GridControl gridControl, EntitiesViewModel<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput> viewModel, Action<int> updateUIAction)
             : base(viewModel)
         {
             _gridControlCore = gridControl;
@@ -66,14 +68,14 @@ namespace Kontecg.Presenters
 
         protected virtual void SubscribeViewModelEvents()
         {
-            ViewModel.EntityChanged += ViewModel_EntityChanged;
-            ViewModel.EntitiesCountChanged += ViewModel_EntitiesCountChanged;
+            //ViewModel.EntityChanged += ViewModel_EntityChanged;
+            //ViewModel.EntitiesCountChanged += ViewModel_EntitiesCountChanged;
         }
 
         protected virtual void UnsubscribeViewModelEvents()
         {
-            ViewModel.EntityChanged -= ViewModel_EntityChanged;
-            ViewModel.EntitiesCountChanged -= ViewModel_EntitiesCountChanged;
+            //ViewModel.EntityChanged -= ViewModel_EntityChanged;
+            //ViewModel.EntitiesCountChanged -= ViewModel_EntitiesCountChanged;
         }
 
         private void GridControl_Load(object sender, EventArgs e)
@@ -124,7 +126,7 @@ namespace Kontecg.Presenters
             if (_entitiesBinding == null)
             {
                 _entitiesBinding = context.SetBinding(GridControl, g => g.DataSource, "Entities");
-                _loadingTrigger = context.SetTrigger<CollectionViewModel<TEntityDto, TPrimaryKey, TService>, bool>(
+                _loadingTrigger = context.SetTrigger<EntitiesViewModel<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>, bool>(
                     x => x.IsLoading, (loading) =>
                     {
                         if (loading)
@@ -244,7 +246,7 @@ namespace Kontecg.Presenters
 
         private void View_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TService>((ColumnView)sender, ViewModel);
+            var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>((ColumnView)sender, ViewModel);
             SetSelection(helper.GetSelection());
         }
 
@@ -334,7 +336,7 @@ namespace Kontecg.Presenters
             var hitInfo = ((LayoutView)sender).CalcHitInfo(ea.Location);
             if (hitInfo.InCard)
             {
-                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TService>((ColumnView)sender, ViewModel);
+                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>((ColumnView)sender, ViewModel);
                 ea.Handled = helper.EditEntity(hitInfo.RowHandle);
             }
         }
@@ -346,7 +348,7 @@ namespace Kontecg.Presenters
             var hitInfo = ((LayoutView)sender).CalcHitInfo(ea.Location);
             if (hitInfo.InCard)
             {
-                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TService>((ColumnView)sender, ViewModel);
+                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>((ColumnView)sender, ViewModel);
                 ea.Handled = helper.ShowEntityMenu(ea.Location, hitInfo.RowHandle);
             }
         }
@@ -355,7 +357,7 @@ namespace Kontecg.Presenters
         {
             if (e.Clicks == 2 && e.Button == MouseButtons.Left)
             {
-                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TService>((ColumnView)sender, ViewModel);
+                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>((ColumnView)sender, ViewModel);
                 e.Handled = helper.EditEntity(e.RowHandle);
             }
         }
@@ -364,12 +366,11 @@ namespace Kontecg.Presenters
         {
             if (e.MenuType == GridMenuType.Row && e.HitInfo.InRowCell)
             {
-                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TService>((ColumnView)sender, ViewModel);
+                var helper = new ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>((ColumnView)sender, ViewModel);
                 helper.PopulateEntityMenu(e.Menu, e.HitInfo.RowHandle);
             }
         }
 
         #endregion
     }
-} 
-#endif
+}

@@ -92,6 +92,22 @@ namespace Kontecg.Services
             return null;
         }
 
+        public Module GetModule(string moduleType)
+        {
+            if (moduleType == null) return null;
+            var module = FindModule(_modules, moduleType);
+
+            if (module == null)
+                return null;
+
+            var cached = _cache.GetOrDefault($"{module.Name}.{module.Id}");
+            if (cached != null)
+                return cached;
+
+            PutOnCache(module);
+            return module;
+        }
+
         public Module GetModule(Module moduleType)
         {
             if(moduleType == null) return null;
@@ -106,6 +122,13 @@ namespace Kontecg.Services
 
             PutOnCache(module);
             return module;
+        }
+
+        /// <inheritdoc />
+        public Module GetModuleType(string moduleType, ViewCategory? category = null)
+        {
+            var module = GetModule(moduleType);
+            return module == null ? null : GetModuleType(module, category);
         }
 
         public Module GetModuleType(Module moduleType, ViewCategory? category = null)

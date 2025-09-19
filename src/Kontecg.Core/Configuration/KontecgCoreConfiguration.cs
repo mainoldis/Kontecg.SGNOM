@@ -29,8 +29,6 @@ namespace Kontecg.Configuration
             };
 
             DomainFormat = "{0}.moa.minbas.cu;{0}.moa.minem.cu";
-
-            MassTransitOptions = new MassTransitOptions();
         }
 
         public ILogger Logger { get; set; }
@@ -46,7 +44,6 @@ namespace Kontecg.Configuration
         /// <inheritdoc />
         public HashSet<string> IgnoredFileExtensions { get; }
 
-        public MassTransitOptions MassTransitOptions { get; }
 #if DEBUG
         public void EnableDbLocalization()
         {

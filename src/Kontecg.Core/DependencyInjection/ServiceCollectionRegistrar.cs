@@ -17,32 +17,7 @@ namespace Kontecg.DependencyInjection
             WorkflowRegistrar.Register(services);
 
             services.UseCastleLoggerFactory();
-
-
-            //var coreOptions = iocManager.Resolve<IKontecgCoreConfiguration>();
-
-            //services.AddMassTransit(x => x.UsingRabbitMq((ctx, c) =>
-            //{
-            //    x.AddConsumers();
-
-            //    c.Host(new Uri($"amqp://{coreOptions.MassTransitOptions.Host}:{coreOptions.MassTransitOptions.Port}{coreOptions.MassTransitOptions.VirtualHost}"),
-            //        configurator =>
-            //        {
-            //            configurator.Username(coreOptions.MassTransitOptions.Username);
-            //            configurator.Password(coreOptions.MassTransitOptions.Password);
-            //            configurator.Heartbeat(coreOptions.MassTransitOptions.Heartbeat);
-            //        });
-
-            //    c.ReceiveEndpoint(coreOptions.MassTransitOptions.QueueName, endpoint =>
-            //    {
-            //        endpoint.ConfigureConsumers(ctx);
-            //    });
-
-            //    ctx.ConfigureEndpoints();
-            //}));
-
-            //iocManager.Release(coreOptions);
-
+            
             return WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
         }
     }

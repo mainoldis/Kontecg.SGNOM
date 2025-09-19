@@ -39,6 +39,7 @@ namespace Kontecg.Services.Forms
             FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             IconOptions.ShowIcon = false;
             Name = "FilterForm";
+            ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "";
             ResumeLayout(false);

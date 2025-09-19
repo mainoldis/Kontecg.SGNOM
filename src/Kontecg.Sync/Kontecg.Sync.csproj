@@ -30,8 +30,8 @@
     <Compile Include="..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Kontecg" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.2.0-alpha.51" />
     <ProjectReference Include="..\Kontecg.Core\Kontecg.Core.csproj" />
     <ProjectReference Include="..\Kontecg.Data\Kontecg.Data.csproj" />
     <ProjectReference Include="..\Kontecg.Services\Kontecg.Services.csproj" />

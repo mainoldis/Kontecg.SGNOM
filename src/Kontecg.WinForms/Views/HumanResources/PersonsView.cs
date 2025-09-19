@@ -26,8 +26,8 @@ namespace Kontecg.Views.HumanResources
             layoutView.Appearance.FieldCaption.Options.UseForeColor = true;
 
             CollectionUiViewModel = DevExpress.Mvvm.POCO.ViewModelSource.Create<CollectionUiViewModel>();
-
-            //ViewModel.SelectedEntityChanged += ViewModelOnSelectedEntityChanged;
+            
+            ViewModel.SelectedEntityChanged += ViewModelOnSelectedEntityChanged;
 
             BindCommands();
 
@@ -42,7 +42,6 @@ namespace Kontecg.Views.HumanResources
         {
             base.OnLoad(e);
 
-            //ViewModel.Reload();
             ViewModel.SelectedEntity = ViewModel.DefaultEntitySelector();
 
             _personDetailView = ViewModel.IocManager.Resolve<PersonDetailView>();
@@ -50,8 +49,7 @@ namespace Kontecg.Views.HumanResources
             _personDetailView.Dock = DockStyle.Fill;
             _personDetailView.Parent = pnlView;
 
-            gridView.ExpandMasterRow(0);
-            UpdateEntitiesCountRelatedUi();
+            SetTopRow();
         }
 
         protected override void OnDisposing()
@@ -78,9 +76,9 @@ namespace Kontecg.Views.HumanResources
         /// <inheritdoc />
         protected override void OnInitServices()
         {
-            Context.RegisterService(this);
             Context.RegisterService(MessageBoxService.CreateXtraMessageBoxService(GuessOwner() ?? this.ParentForm));
             Context.RegisterService("View Settings", new ViewSettingsDialogDocumentManagerService(() => CollectionUiViewModel));
+            Context.RegisterService(new DetailFormDocumentManagerService(KontecgWinFormsConsts.ModuleNames.HumanResources, ViewCategory.AnalysisView));
         }
 
         protected void BindCommands()
@@ -90,14 +88,38 @@ namespace Kontecg.Views.HumanResources
             bindings.BindCommand(biNew, m => m.NotifyAsync);
             //bindings.BindCommand(biEdit, m => m.Edit);
             //bindings.BindCommand(biDelete, m => m.Delete);
-            //bindings.BindCommand(biNewCustomFilter, m => m.NewCustomFilter);
-            //bindings.BindCommand(biViewSettings, m => m.ShowViewSettings);
-            bindings.SetObjectDataSourceBinding(bindingSource, m => m.FilteredEntities);
+            bindings.BindCommand(biAnalysis, m => m.ShowAnalysis);
+            bindings.BindCommand(biNewCustomFilter, m => m.NewCustomFilter);
+            bindings.BindCommand(biViewSettings, m => m.ShowViewSettings);
+            
+            bindings.SetBinding(hiItemsCount, e => e.Caption, m => m.StatusMessage);
+            bindings.SetObjectDataSourceBinding(bindingSource, m => m.Entities);
 
             gridView.FocusedRowObjectChanged += (s, e) =>
             {
                 ViewModel.SelectedEntity = e.Row as PersonDto;
             };
+
+            bindings.SetTrigger(
+                x => x.IsLoading, loading =>
+                {
+                    if (loading)
+                        gridView.ShowLoadingPanel();
+                    else
+                    {
+                        gridView.HideLoadingPanel();
+                        SetTopRow();
+                    }
+                });
+        }
+
+        protected virtual void SetTopRow()
+        {
+            if (gridView == null) return;
+            gridView.ClearSelection();
+            gridView.SelectRow(0);
+            gridView.FocusedRowHandle = 0;
+            gridView.ExpandMasterRow(0);
         }
 
         private void ViewModelOnSelectedEntityChanged(object sender, EventArgs e)
@@ -107,6 +129,8 @@ namespace Kontecg.Views.HumanResources
                 int rowHandle = gridView.FindRow(ViewModel.SelectedEntity);
                 if (rowHandle >= 0)
                     gridView.FocusedRowHandle = rowHandle;
+
+                ViewModelHelper.EnsureViewModel(_personDetailView.ViewModel, ViewModel, ViewModel.SelectedEntity);
             }
         }
 
@@ -134,7 +158,7 @@ namespace Kontecg.Views.HumanResources
                 gridView.ExpandMasterRow(0);
             }
 
-            UpdateEntitiesCountRelatedUi();
+            UpdateAdditionalButtons(ViewModel.TotalCount > 0);
             GridHelper.SetFindControlImages(gridControl);
         }
 
@@ -164,13 +188,6 @@ namespace Kontecg.Views.HumanResources
         }
 
         #endregion
-
-        private void UpdateEntitiesCountRelatedUi()
-        {
-            var count = ViewModel.TotalCount;
-            hiItemsCount.Caption = ViewModel.StatusMessage;
-            UpdateAdditionalButtons(count > 0);
-        }
 
         private void UpdateAdditionalButtons(bool hasRecords)
         {

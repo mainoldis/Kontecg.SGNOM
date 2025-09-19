@@ -23,11 +23,11 @@ using Kontecg.Localization;
 using Kontecg.Localization.Sources;
 using Kontecg.Logging;
 using Kontecg.Runtime.Events;
+using Kontecg.Services;
 using Kontecg.Threading;
 using Kontecg.Timing;
 using Kontecg.Updates;
 using Kontecg.ViewModels.Account;
-using Kontecg.Views.Account;
 using Microsoft.Extensions.FileProviders;
 
 namespace Kontecg.Runtime
@@ -163,7 +163,7 @@ namespace Kontecg.Runtime
                     EventBus.Trigger(this, new KontecgHandledExceptionData(ex));
                 }
                 else
-                    Logger.Error(ex.Message);
+                    Logger.Fatal(ex.Message);
             }
         }
 

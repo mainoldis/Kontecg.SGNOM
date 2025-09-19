@@ -1,4 +1,5 @@
-﻿using Kontecg.Application.Alerts;
+﻿using System;
+using Kontecg.Application.Alerts;
 using Kontecg.Application.Features;
 using Kontecg.Authorization;
 using Kontecg.Configuration;
@@ -15,14 +16,17 @@ using Castle.Core.Logging;
 using Kontecg.Dependency;
 using Kontecg.IdentityFramework;
 using Kontecg.Services;
+using System.Collections.Generic;
 
 namespace Kontecg.ViewModels
 {
     /// <summary>
     /// Base class for all ViewModels in Kontecg system.
     /// </summary>
-    public abstract class KontecgViewModelBase : IIocManagerAccessor, IShouldInitialize
+    public abstract class KontecgViewModelBase : IIocManagerAccessor, IShouldInitialize, IDisposable
     {
+        private readonly List<Action> _toUnsubscribeActions = [];
+
         protected KontecgViewModelBase()
         {
             KontecgSession = NullKontecgSession.Instance;
@@ -135,10 +139,6 @@ namespace Kontecg.ViewModels
             set => _unitOfWorkManager = value;
         }
 
-        public IAlertManager AlertManager { get; set; }
-
-        public AlertList Alerts => AlertManager.Alerts;
-
         private IUnitOfWorkManager _unitOfWorkManager;
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace Kontecg.ViewModels
         /// </summary>
         /// <param name="featureName">Name of the feature</param>
         /// <returns></returns>
-        protected virtual Task<bool> IsEnabledAsync(string featureName)
+        protected virtual Task<bool> IsFeatureEnabledAsync(string featureName)
         {
             return FeatureChecker.IsEnabledAsync(featureName);
         }
@@ -225,7 +225,7 @@ namespace Kontecg.ViewModels
         /// </summary>
         /// <param name="featureName">Name of the feature</param>
         /// <returns></returns>
-        protected virtual bool IsEnabled(string featureName)
+        protected virtual bool IsFeatureEnabled(string featureName)
         {
             return FeatureChecker.IsEnabled(featureName);
         }
@@ -233,6 +233,24 @@ namespace Kontecg.ViewModels
         protected void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        protected virtual void Subscribe<TEventData>(Action<TEventData> action) where TEventData : IEventData
+        {
+            EventBus.Register(action);
+            _toUnsubscribeActions.Add(() => EventBus.UnRegister(action));
+        }
+
+        protected virtual void Trigger<TEventData>(TEventData eventData) where TEventData : IEventData
+        {
+            EventBus.Trigger(this, eventData);
+        }
+
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            foreach (var unsubscribe in _toUnsubscribeActions) 
+                unsubscribe();
         }
     }
 }

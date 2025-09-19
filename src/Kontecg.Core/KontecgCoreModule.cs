@@ -82,7 +82,7 @@ namespace Kontecg
             IocManager.Register<IOnlineClientInfoProvider, OnlineClientInfoProvider>();
             IocManager.Register<IAppConfigurationAccessor, DefaultAppConfigurationAccessor>();
             IocManager.Register<IAppConfigurationWriter, DefaultAppConfigurationWriter>();
-            
+
             Configuration.ReplaceService<IKontecgSession, AppSession>();
             Configuration.ReplaceService<IClientInfoProvider, EnvironmentClientInfoProvider>();
 

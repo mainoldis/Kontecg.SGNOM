@@ -2,6 +2,7 @@
 using Kontecg.Localization;
 using Kontecg.Views;
 using Kontecg.Views.Dashboard;
+using Kontecg.Views.HumanResources;
 
 namespace Kontecg.Navigation
 {
@@ -36,16 +37,26 @@ namespace Kontecg.Navigation
                             KontecgWinFormsConsts.LocalizationSourceName), typeof(DashboardFilterPaneCollapsedView), category: ViewCategory.FilterPaneCollapsedView)
                 ));
 
-            /*
+            
             modules.Add(
                 new ModuleDefinition(
                     KontecgWinFormsConsts.ModuleNames.HumanResources,
                     Guid.Parse(KontecgWinFormsConsts.ModuleNames.HumanResourcesId),
                     displayName: new LocalizableString(KontecgWinFormsConsts.ModuleNames.HumanResources, KontecgWinFormsConsts.LocalizationSourceName),
                     order: 2,
-                    imageName: "resource://Kontecg.Resources.Modules.HumanResources.svg?Size=16x16"
+                    imageName: "HumanResources.svg",
+                    smallImageUri: "resource://Kontecg.Resources.Modules.HumanResources.svg?Size=16x16",
+                    largeImageUri: "resource://Kontecg.Resources.Modules.HumanResources.svg"
+                ).AddView(
+                    new ViewDefinition(KontecgWinFormsConsts.ModuleNames.HumanResources + ".MainView",
+                        new LocalizableString(KontecgWinFormsConsts.ModuleNames.HumanResources,
+                            KontecgWinFormsConsts.LocalizationSourceName), typeof(PersonsView))
+                ).AddView(
+                    new ViewDefinition(KontecgWinFormsConsts.ModuleNames.HumanResources + ".AnalysisView",
+                        new LocalizableString(KontecgWinFormsConsts.ModuleNames.HumanResources,
+                            KontecgWinFormsConsts.LocalizationSourceName), typeof(PersonsAnalysis), category: ViewCategory.AnalysisView)
                 ));
-
+            /*
             modules.Add(
                 new ModuleDefinition(
                     KontecgWinFormsConsts.ModuleNames.Accounting,

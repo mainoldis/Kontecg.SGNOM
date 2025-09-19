@@ -32,8 +32,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Kontecg.Baseline.EntityFrameworkCore" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.EntityFrameworkCore.EFPlus" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Baseline.EntityFrameworkCore" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.EntityFrameworkCore.EFPlus" Version="8.2.0-alpha.51" />
     <ProjectReference Include="..\Kontecg.Core\Kontecg.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -4,8 +4,15 @@ using DevExpress.Mvvm.DataAnnotations;
 
 namespace Kontecg.ViewModels
 {
+    [POCOViewModel]
     public abstract class DocumentContentViewModelBase : KontecgViewModelBase, IDocumentContent
     {
+        /// <inheritdoc />
+        protected DocumentContentViewModelBase()
+        {
+            LocalizationSourceName = KontecgWinFormsConsts.LocalizationSourceName;
+        }
+
         [Command]
         public void Close()
         {

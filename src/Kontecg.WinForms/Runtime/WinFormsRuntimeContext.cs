@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Security.Claims;
 using Itenso.TimePeriod;
 
 namespace Kontecg.Runtime

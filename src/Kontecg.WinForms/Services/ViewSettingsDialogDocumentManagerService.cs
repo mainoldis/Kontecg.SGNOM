@@ -3,6 +3,7 @@ using Kontecg.Dependency;
 using Kontecg.ViewModels;
 using System;
 using System.Windows.Forms;
+using Kontecg.Localization;
 using Kontecg.Services.Forms;
 using Kontecg.ViewModels.Shared;
 using Kontecg.Views.Shared;
@@ -23,9 +24,13 @@ namespace Kontecg.Services
         {
             object view = new ViewSettingsControl(_collectionUiViewModelAccessor());
             viewModel = EnsureViewModel(viewModel, parameter, parentViewModel, view);
+
+            var title =
+                $@"KONTECG - {LocalizationHelper.GetString(KontecgWinFormsConsts.LocalizationSourceName, documentType + "_Title")}";
+
             return RegisterDocument(view,
                 (form) => new ViewSettingsDialogDocument(this, form, viewModel),
-                () => new FilterForm { Text = documentType });
+                () => new FilterForm { Text = title });
         }
 
         #region Document

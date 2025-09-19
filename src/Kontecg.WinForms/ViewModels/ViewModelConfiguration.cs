@@ -23,6 +23,8 @@
         /// </summary>
         public int OperationTimeoutMs { get; set; } = 30000;
 
+        public bool AllowSaveReset { get; set; } = true;
+
         /// <summary>
         /// Habilita/deshabilita confirmación antes de eliminar.
         /// </summary>
@@ -37,6 +39,6 @@
         /// Número máximo de elementos para aplicar filtros locales.
         /// Si hay más elementos, se recomienda filtrar en el servidor.
         /// </summary>
-        public int MaxEntitiesForLocalFiltering { get; set; } = KontecgCoreConsts.DefaultPageSize / 2;
+        public int MaxEntitiesForLocalFiltering { get; set; } = KontecgCoreConsts.DefaultPageSize;
     }
 }

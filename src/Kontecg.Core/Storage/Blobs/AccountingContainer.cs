@@ -7,5 +7,6 @@ namespace Kontecg.Storage.Blobs
     {
         public const string Documents = "documents";
         public const string Vouchers = "vouchers";
+        public const string ExchangeRates = "exchange_rates";
     }
 }

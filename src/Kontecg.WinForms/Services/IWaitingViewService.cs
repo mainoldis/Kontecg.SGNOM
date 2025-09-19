@@ -1,4 +1,6 @@
-﻿namespace Kontecg.Services
+﻿using System.Windows.Forms;
+
+namespace Kontecg.Services
 {
     public interface IWaitingViewService
     {
@@ -6,7 +8,7 @@
 
         void CloseSplash();
 
-        void BeginWaiting(System.Windows.Forms.UserControl owner, object parameter);
+        void BeginWaiting(IWin32Window owner, object parameter);
 
         void EndWaiting();
     }

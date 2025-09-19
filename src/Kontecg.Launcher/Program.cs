@@ -122,7 +122,6 @@ namespace Kontecg
 
             WindowsFormsSettings.DefaultSettingsCompatibilityMode = SettingsCompatibilityMode.v18_1;
             System.Windows.Forms.Application.SetDefaultFont(defaultFont);
-
         }
 
         private static void CheckMissingConfig()

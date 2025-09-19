@@ -1,6 +1,6 @@
 ﻿using System;
+using Kontecg.Currencies.Exchange;
 using Kontecg.Domain;
-using NMoneys.Exchange;
 
 namespace Kontecg.Currencies
 {

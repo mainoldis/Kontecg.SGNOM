@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using Kontecg.Dependency;
+using Kontecg.Localization;
 using Kontecg.Services.Forms;
 using Kontecg.Views;
 
@@ -22,9 +23,15 @@ namespace Kontecg.Services
         {
             var moduleLocator = GetService<IModuleLocator>(parentViewModel);
             object view = moduleLocator.GetModuleControl(_moduleType, viewModel, parameter, _viewCategory);
+
+            viewModel = EnsureViewModel(viewModel, parameter, parentViewModel, view);
+
+            var title =
+                $@"KONTECG - {LocalizationHelper.GetString(KontecgWinFormsConsts.LocalizationSourceName, documentType + "_Title")}";
+
             return RegisterDocument(view,
                 (form) => new DialogDocument(this, form, viewModel),
-                () => new FilterForm() { Text = documentType });
+                () => new FilterForm() { Text = title });
         }
     }
 }

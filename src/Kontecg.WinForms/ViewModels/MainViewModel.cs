@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using Kontecg.Views;
 using DevExpress.Mvvm.POCO;
@@ -12,7 +11,6 @@ using Kontecg.Features;
 using Kontecg.Services;
 using Kontecg.Dependency;
 using DevExpress.Mvvm;
-using Kontecg.Runtime.Session;
 using Kontecg.Authorization.Users.Profile.Dto;
 using Kontecg.Sessions.Dto;
 using Kontecg.Authorization.Users.Profile;
@@ -462,7 +460,7 @@ namespace Kontecg.ViewModels
 
         #region Theme
 
-        public virtual bool IsThemeFeatureEnabled => IsEnabled(WinFormsFeatureNames.ChangeThemeFeature) &&
+        public virtual bool IsThemeFeatureEnabled => IsFeatureEnabled(WinFormsFeatureNames.ChangeThemeFeature) &&
                                                      SettingManager.GetSettingValue<bool>(WinFormsSettings.Theme.AllowChangeTheme);
 
         #endregion

@@ -33,9 +33,9 @@
     <ProjectReference Include="..\Kontecg.SGNOM.Tests\Kontecg.SGNOM.Tests.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Kontecg.TestBase" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.1.0-alpha.55" />
-    <PackageReference Include="Kontecg.Castle.MsAdapter" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.TestBase" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.2.0-alpha.51" />
+    <PackageReference Include="Kontecg.Castle.MsAdapter" Version="8.2.0-alpha.51" />
     <PackageReference Include="Castle.Core" Version="5.2.1" />
     <PackageReference Include="DevExpress.Win.Design" Version="24.1.7" />
     <PackageReference Include="Microsoft.ML" Version="4.0.0-preview.24378.1" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Kontecg.Configuration;
-using Kontecg.Data;
+using Kontecg.Currencies.Exchange;
 using Kontecg.Dependency;
 using Kontecg.Domain;
 using Kontecg.Domain.Repositories;
@@ -11,7 +11,6 @@ using Kontecg.Json;
 using Kontecg.Linq.Extensions;
 using Kontecg.Timing;
 using NMoneys;
-using NMoneys.Exchange;
 
 namespace Kontecg.Currencies
 {

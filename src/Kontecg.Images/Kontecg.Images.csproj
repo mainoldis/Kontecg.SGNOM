@@ -28,6 +28,6 @@
     <EmbeddedResource Include="Localization\Sources\*.xml;Images\*.*;" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Kontecg" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg" Version="8.2.0-alpha.51" />
   </ItemGroup>
 </Project>

@@ -14,8 +14,6 @@ namespace Kontecg.Configuration
 
         string DomainFormat { get; set; }
 
-        MassTransitOptions MassTransitOptions { get; }
-
 #if DEBUG
         void EnableDbLocalization();
 #endif

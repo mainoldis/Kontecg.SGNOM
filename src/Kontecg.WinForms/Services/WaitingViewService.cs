@@ -34,7 +34,7 @@ namespace Kontecg.Services
         }
 
         /// <inheritdoc />
-        public void BeginWaiting(UserControl owner, object parameter)
+        public void BeginWaiting(IWin32Window owner, object parameter)
         {
             ShowWaitView(owner, DevExpress.XtraEditors.EnumDisplayTextHelper.GetDisplayText(parameter));
         }
@@ -45,11 +45,16 @@ namespace Kontecg.Services
             CloseWaitView();
         }
 
-        private void ShowWaitView(UserControl owner = null, string caption = null, string description = null)
+        private void ShowWaitView(IWin32Window owner = null, string caption = null, string description = null)
         {
             if (SplashScreenManager.Default != null) return;
 
-            if (owner != null) _owner = owner.FindForm();
+            _owner = owner switch
+                     {
+                         Form form => form,
+                         BaseUserControl userControl => (Form) userControl.GuessOwner(),
+                         _ => _owner
+                     };
 
             SplashScreenManager.ShowForm(_owner, typeof(KontecgWaitForm), false, false, false, ParentFormState.Unlocked);
             SplashScreenManager splashScreenManager = SplashScreenManager.Default;

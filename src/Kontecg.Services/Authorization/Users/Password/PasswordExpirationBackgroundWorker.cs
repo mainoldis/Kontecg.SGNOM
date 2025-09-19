@@ -32,5 +32,4 @@ namespace Kontecg.Authorization.Users.Password
             _unitOfWorkManager.WithUnitOfWork(_passwordExpirationService.ForcePasswordExpiredUsersToChangeTheirPassword);
         }
     }
-
 }

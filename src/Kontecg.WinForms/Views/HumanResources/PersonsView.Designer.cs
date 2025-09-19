@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges1 = new DevExpress.Skins.SkinPaddingEdges();
-            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges2 = new DevExpress.Skins.SkinPaddingEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonsView));
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges5 = new DevExpress.Skins.SkinPaddingEdges();
+            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges6 = new DevExpress.Skins.SkinPaddingEdges();
             ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             biNew = new DevExpress.XtraBars.BarButtonItem();
             biDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -84,6 +83,7 @@
             splitterItem = new DevExpress.XtraLayout.SplitterItem();
             detailItem = new DevExpress.XtraLayout.LayoutControlItem();
             alertControl = new DevExpress.XtraBars.Alerter.AlertControl(components);
+            biAnalysis = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)MvvmContext).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ribbonControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)moduleLayout).BeginInit();
@@ -103,9 +103,9 @@
             // ribbonControl
             // 
             ribbonControl.ExpandCollapseItem.Id = 0;
-            ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl.ExpandCollapseItem, biNew, biDelete, biEdit, bsiPrint, bciShowList, bciShowCard, biNewCustomFilter, biDataPaneSubItem, bmiHorizontalLayout, bmiVerticalLayout, bmiHideDetail, biChangeViewSubItem, bmiShowList, bmiShowCard, biViewSettings, biResetView, biReverseSort, biAddColumns, biExpandCollapse, hiItemsCount, galleryQuickReports });
+            ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl.ExpandCollapseItem, biNew, biDelete, biEdit, bsiPrint, bciShowList, bciShowCard, biNewCustomFilter, biDataPaneSubItem, bmiHorizontalLayout, bmiVerticalLayout, bmiHideDetail, biChangeViewSubItem, bmiShowList, bmiShowCard, biViewSettings, biResetView, biReverseSort, biAddColumns, biExpandCollapse, hiItemsCount, galleryQuickReports, biAnalysis });
             ribbonControl.Location = new System.Drawing.Point(0, 0);
-            ribbonControl.MaxItemId = 24;
+            ribbonControl.MaxItemId = 25;
             ribbonControl.Name = "ribbonControl";
             ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { rpInicio, rpVista });
             ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
@@ -284,18 +284,18 @@
             // 
             galleryQuickReports.Gallery.ColumnCount = 2;
             galleryQuickReports.Gallery.DrawImageBackground = false;
-            galleryItemGroup1.Caption = "Group1";
-            galleryItem1.Caption = "Relationship";
-            galleryItem2.Caption = "Account Information";
-            galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] { galleryItem1, galleryItem2 });
-            galleryQuickReports.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] { galleryItemGroup1 });
+            galleryItemGroup3.Caption = "Group1";
+            galleryItem5.Caption = "Relationship";
+            galleryItem6.Caption = "Account Information";
+            galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] { galleryItem5, galleryItem6 });
+            galleryQuickReports.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] { galleryItemGroup3 });
             galleryQuickReports.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
-            skinPaddingEdges1.Bottom = -3;
-            skinPaddingEdges1.Top = -3;
-            galleryQuickReports.Gallery.ItemImagePadding = skinPaddingEdges1;
-            skinPaddingEdges2.Bottom = -1;
-            skinPaddingEdges2.Top = -1;
-            galleryQuickReports.Gallery.ItemTextPadding = skinPaddingEdges2;
+            skinPaddingEdges5.Bottom = -3;
+            skinPaddingEdges5.Top = -3;
+            galleryQuickReports.Gallery.ItemImagePadding = skinPaddingEdges5;
+            skinPaddingEdges6.Bottom = -1;
+            skinPaddingEdges6.Top = -1;
+            galleryQuickReports.Gallery.ItemTextPadding = skinPaddingEdges6;
             galleryQuickReports.Gallery.ShowItemText = true;
             galleryQuickReports.Id = 22;
             galleryQuickReports.Name = "galleryQuickReports";
@@ -330,6 +330,7 @@
             rpgAcciones.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             rpgAcciones.ItemLinks.Add(biEdit);
             rpgAcciones.ItemLinks.Add(bsiPrint);
+            rpgAcciones.ItemLinks.Add(biAnalysis);
             rpgAcciones.MergeOrder = 0;
             rpgAcciones.Name = "rpgAcciones";
             rpgAcciones.Text = "Actions";
@@ -413,7 +414,7 @@
             moduleLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             moduleLayout.Location = new System.Drawing.Point(0, 150);
             moduleLayout.Name = "moduleLayout";
-            moduleLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2622, 429, 650, 400);
+            moduleLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 429, 650, 400);
             moduleLayout.Root = Root;
             moduleLayout.Size = new System.Drawing.Size(1135, 561);
             moduleLayout.TabIndex = 2;
@@ -554,6 +555,14 @@
             detailItem.TextSize = new System.Drawing.Size(0, 0);
             detailItem.TextVisible = false;
             // 
+            // biAnalysis
+            // 
+            biAnalysis.Caption = "AgedPeople";
+            biAnalysis.Id = 24;
+            biAnalysis.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            biAnalysis.ImageOptions.ImageUri.Uri = "outlook%20inspired/salesanalysis";
+            biAnalysis.Name = "biAnalysis";
+            // 
             // PersonsView
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,5 +640,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgQuickAccess;
         private DevExpress.XtraBars.RibbonGalleryBarItem galleryQuickReports;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
+        private DevExpress.XtraBars.BarButtonItem biAnalysis;
     }
 }

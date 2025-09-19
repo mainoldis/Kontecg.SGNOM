@@ -311,7 +311,7 @@ namespace Kontecg.HumanResources
                 throw new UserFriendlyException(L("PersonMustHaveClothingSizesWarning", person.FullName));
 
             if (person.Age < 18)
-                throw new UserFriendlyException(L("PersonAgeMustBeGeaterThan18Warning", person.FullName));
+                throw new UserFriendlyException(L("PersonAgeMustBeGreaterThan18Warning", person.FullName));
         }
 
         protected virtual void ValidatePerson(Person person)
@@ -329,7 +329,7 @@ namespace Kontecg.HumanResources
                 throw new UserFriendlyException(L("PersonMustHaveClothingSizesWarning", person.FullName));
 
             if (person.Age < 18)
-                throw new UserFriendlyException(L("PersonAgeMustBeGeaterThan18Warning", person.FullName));
+                throw new UserFriendlyException(L("PersonAgeMustBeGreaterThan18Warning", person.FullName));
         }
 
         #endregion

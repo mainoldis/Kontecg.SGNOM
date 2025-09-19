@@ -28,7 +28,6 @@ namespace Kontecg.Desktop.Tests
         public void Get_screen_Test()
         {
             KontecgSession.Use(null, 1);
-            
         }
     }
 }

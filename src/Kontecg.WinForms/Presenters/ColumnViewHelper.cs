@@ -1,5 +1,4 @@
-﻿#if false
-using DevExpress.XtraGrid.Views.Base;
+﻿using DevExpress.XtraGrid.Views.Base;
 using Kontecg.ViewModels;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,14 +8,18 @@ using Kontecg.Localization;
 
 namespace Kontecg.Presenters
 {
-    public class ColumnViewHelper<TEntityDto, TPrimaryKey, TService>
-        where TEntityDto : EntityDto<TPrimaryKey>
-        where TService : class
+    public class ColumnViewHelper<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput>
+        where TEntityDto : class, IEntityDto<TPrimaryKey>
+        where TGetAllInput : IPagedResultRequest, ISortedResultRequest, new()
+        where TCreateInput : class, IEntityDto<TPrimaryKey>
+        where TUpdateInput : class, IEntityDto<TPrimaryKey>
+        where TGetInput : IEntityDto<TPrimaryKey>, new()
+        where TDeleteInput : class, IEntityDto<TPrimaryKey>
     {
-        private readonly CollectionViewModel<TEntityDto, TPrimaryKey, TService> _viewModel;
+        private readonly EntitiesViewModel<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput> _viewModel;
         private readonly ColumnView _view;
 
-        public ColumnViewHelper(ColumnView view, CollectionViewModel<TEntityDto, TPrimaryKey, TService> viewModel)
+        public ColumnViewHelper(ColumnView view, EntitiesViewModel<TEntityDto, TPrimaryKey, TGetAllInput, TCreateInput, TUpdateInput, TGetInput, TDeleteInput> viewModel)
         {
             _view = view;
             _viewModel = viewModel;
@@ -57,11 +60,11 @@ namespace Kontecg.Presenters
         {
             if (!_view.IsDataRow(rowHandle)) return false;
             TEntityDto entity = _view.GetRow(rowHandle) as TEntityDto;
-            if (entity != null && _viewModel.CanEdit(entity))
-            {
-                _viewModel.Edit(entity);
-                return true;
-            }
+            //if (entity != null && _viewModel.CanEdit(entity))
+            //{
+            //    _viewModel.Edit(entity);
+            //    return true;
+            //}
             return false;
         }
 
@@ -85,20 +88,19 @@ namespace Kontecg.Presenters
         {
             var newItem = new DXMenuItem();
             newItem.Caption = LocalizationHelper.GetString(KontecgWinFormsConsts.LocalizationSourceName, "New");
-            newItem.BindCommand(() => _viewModel.New(), _viewModel);
+            //newItem.BindCommand(() => _viewModel.New(), _viewModel);
 
             var editItem = new DXMenuItem();
             editItem.Caption = LocalizationHelper.GetString(KontecgWinFormsConsts.LocalizationSourceName, "Edit");
-            editItem.BindCommand((ee) => _viewModel.Edit(ee), _viewModel, () => entity);
+            //editItem.BindCommand((ee) => _viewModel.Edit(ee), _viewModel, () => entity);
 
             var deleteItem = new DXMenuItem();
             deleteItem.Caption = LocalizationHelper.GetString(KontecgWinFormsConsts.LocalizationSourceName, "Delete");
-            deleteItem.BindCommand((ee) => _viewModel.Delete(ee), _viewModel, () => entity);
+            //deleteItem.BindCommand((ee) => _viewModel.Delete(ee), _viewModel, () => entity);
 
             rowMenu.Items.Add(newItem);
             rowMenu.Items.Add(editItem);
             rowMenu.Items.Add(deleteItem);
         }
     }
-} 
-#endif
+}

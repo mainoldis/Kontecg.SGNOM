@@ -34,7 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7" />
-    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.1.0-alpha.55" />
+    <PackageReference Include="Kontecg.Castle.Log4Net" Version="8.2.0-alpha.51" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kontecg.Data\Kontecg.Data.csproj" />

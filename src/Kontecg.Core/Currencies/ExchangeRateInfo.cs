@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Itenso.TimePeriod;
-using Kontecg.Data;
 using Kontecg.Domain;
 using Kontecg.Domain.Entities.Auditing;
 using NMoneys;

@@ -11,7 +11,7 @@
       "IgnoredRecurrentJobs": false
     },
     "RabbitMq": {
-      "Host": "127.0.0.1"
+      "Host": "rabbitmq://127.0.0.1"
     },
     "RedisCache": {
       "ConnectionString": "127.0.0.1",

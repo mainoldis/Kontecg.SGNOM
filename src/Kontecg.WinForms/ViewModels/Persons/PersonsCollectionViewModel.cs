@@ -6,13 +6,16 @@ using Kontecg.Domain;
 using Kontecg.HumanResources;
 using Kontecg.HumanResources.Dto;
 using System.Linq;
+using System.Threading.Tasks;
 using DevExpress.Mvvm.POCO;
+using Kontecg.Application.Services.Dto;
+using Kontecg.Primitives;
 using Kontecg.Threading;
 using Kontecg.ViewModels.Shared;
 
 namespace Kontecg.ViewModels.Persons
 {
-    public class PersonsCollectionViewModel : EntitiesViewModel<PersonDto, long, FindPersonsInput, IHumanResourcesAppService>, ISupportCustomFilters
+    public class PersonsCollectionViewModel : EntitiesViewModel<PersonDto, long, FindPersonsInput, IHumanResourcesAppService>, ISupportCustomFilters, ISupportAnalysis
     {
         /// <inheritdoc />
         public PersonsCollectionViewModel(IHumanResourcesAppService humanResourcesAppService, ICancellationTokenProvider cancellationTokenProvider)
@@ -23,9 +26,26 @@ namespace Kontecg.ViewModels.Persons
 
         private PersonDto SelectedEntityCallback()
         {
-            if(HasEntities && !HasMultipleSelection)
-                return FilteredEntities[0];
+            if(IsLoaded && !HasMultipleSelection)
+                return Entities[0];
             return null;
+        }
+
+        /// <inheritdoc />
+        protected override async ValueTask<PagedResultDto<PersonDto>> LoadDataSourceAsync()
+        {
+            return !HasService ? new PagedResultDto<PersonDto>() : Service.GetAll(Filter);
+        }
+
+        [Command]
+        public void QuickReport(string reportType)
+        {
+            RaisePrint(reportType);
+        }
+
+        public bool CanQuickReport(string reportType)
+        {
+            return AllowPrintEntities && HasSelection;
         }
 
         [Command]
@@ -40,6 +60,13 @@ namespace Kontecg.ViewModels.Persons
             }
         }
 
+        /// <inheritdoc />
+        [Command]
+        public void ShowAnalysis()
+        {
+            ShowDocument<HumanResourcesAnalysisViewModel>(KontecgWinFormsConsts.ModuleNames.HumanResources, null);
+        }
+
         #region ISupportCustomFilters
 
         public event EventHandler CustomFilter;
@@ -49,12 +76,14 @@ namespace Kontecg.ViewModels.Persons
         [Command]
         public void ResetCustomFilters()
         {
+            Filter = new FindPersonsInput { MaxResultCount = int.MaxValue };
             RaiseCustomFiltersReset();
         }
 
         [Command]
         public void NewCustomFilter()
         {
+            Filter = new FindPersonsInput {Gender = Gender.F, MaxResultCount = int.MaxValue };
             RaiseCustomFilter();
         }
 
@@ -102,5 +131,19 @@ namespace Kontecg.ViewModels.Persons
         }
 
         #endregion
+
+        private void ShowDocument<TViewModel>(string documentType, object parameter)
+        {
+            var document = FindDocument<TViewModel>();
+            if (parameter is int)
+                document = FindDocument<TViewModel>((int)parameter);
+            if (parameter is long)
+                document = FindDocument<TViewModel>((long)parameter);
+            if (document == null)
+                document = DocumentManagerService.CreateDocument(documentType, null, parameter, this);
+            else
+                ViewModelHelper.EnsureViewModel(document.Content, this, parameter);
+            document.Show();
+        }
     }
 }

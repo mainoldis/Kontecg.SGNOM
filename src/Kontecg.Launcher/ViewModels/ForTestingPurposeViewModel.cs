@@ -48,7 +48,7 @@ namespace Kontecg.ViewModels
 
         #region Theme
 
-        public virtual bool IsThemeFeatureEnabled => IsEnabled(WinFormsFeatureNames.ChangeThemeFeature) &&
+        public virtual bool IsThemeFeatureEnabled => IsFeatureEnabled(WinFormsFeatureNames.ChangeThemeFeature) &&
                                                      SettingManager.GetSettingValue<bool>(WinFormsSettings.Theme.AllowChangeTheme);
 
         #endregion

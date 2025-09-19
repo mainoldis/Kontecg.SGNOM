@@ -16,12 +16,11 @@ using Kontecg.Features;
 using Kontecg.Hangfire.Configuration;
 using Kontecg.Localization.Dictionaries.Xml;
 using Kontecg.Localization.Dictionaries;
-using Kontecg.Localization;
+using Kontecg.MassTransit;
 using Kontecg.Modules;
 using Kontecg.RealTime;
 using Kontecg.Reflection.Extensions;
 using Kontecg.Runtime;
-using Kontecg.Runtime.Caching.Redis;
 using Kontecg.Threading.BackgroundWorkers;
 using Kontecg.Timing;
 using Kontecg.Updates;
@@ -34,10 +33,11 @@ using Polly.Retry;
 namespace Kontecg
 {
     [DependsOn(
-        typeof(KontecgWinFormsModule))]
+        typeof(KontecgWinFormsModule), typeof(KontecgMassTransitModule))]
     public class MainModule : KontecgModule
     {
         private readonly IConfigurationRoot _appConfiguration;
+        private IBusControl _busControl;
 
         /// <summary>
         ///     MainModule is a Kontecg Module that is used to configure and initialize the application.
@@ -62,10 +62,11 @@ namespace Kontecg
             Configuration.BackgroundJobs.IsJobExecutionEnabled = _appConfiguration.GetValue<bool>("App:BackgroundJobs:IsJobExecutionEnabled"); ;
             Configuration.Updates.IsUpdateCheckEnabled = _appConfiguration.GetValue<bool>("App:Update:IsEnabled");
 
+            Configuration.Modules.UseMassTransit().Options.Host = _appConfiguration.GetValue<string>("App:RabbitMq:Host");
+
             Configuration.Modules.UseCore(options =>
             {
                 options.IgnoredRecurrentJobs = _appConfiguration.GetValue<bool>("App:BackgroundJobs:IgnoredRecurrentJobs");
-                options.MassTransitOptions.Host = _appConfiguration["App:RabbitMq:Host"];
             });
 
             Configuration.Localization.Sources.Add(
@@ -99,31 +100,23 @@ namespace Kontecg
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
             WinFormsRuntimeContext.ServiceProvider = ServiceCollectionRegistrar.Register(IocManager);
             WinFormsRuntimeContext.Calendar = IocManager.ResolveAsDisposable<ITimeCalendarProvider>().Object.GetWorkTimeCalendar();
+            _busControl = MassTransitRegistrar.RegisterUsingRabbitMq(IocManager);
         }
 
         /// <inheritdoc />
         public override void PostInitialize()
         {
-            IFeatureChecker featureChecker = IocManager.Resolve<IFeatureChecker>();
-
-            //SetupWorkflowServer();
-            //StartMassTransit();
-
-            if(Configuration.BackgroundJobs.IsJobExecutionEnabled) 
-                Configuration.BackgroundJobs.UseHangfire(options => {});
-
-            var workManager = IocManager.Resolve<IBackgroundWorkerManager>();
-
-            if(featureChecker.IsEnabled(CoreFeatureNames.CurrencyExchangeRateFeature))
-                workManager.Add(IocManager.Resolve<ExternalExchangeRateProviderWorker>());
-
-            workManager.Add(IocManager.Resolve<PasswordExpirationBackgroundWorker>());
-            workManager.Add(IocManager.Resolve<MakeInactiveUsersPassiveWorker>());
-
-            if (Configuration.Updates.IsUpdateCheckEnabled)
-                workManager.Add(IocManager.Resolve<UpdateCheckerWorker>());
-
+            SetupBackgroundWorks();
+            SetupWorkflowServer();
             RegisterClient();
+
+            _busControl?.Start();
+        }
+
+        /// <inheritdoc />
+        public override void Shutdown()
+        {
+            _busControl?.Stop();
         }
 
         private void SetupWorkflowServer()
@@ -131,39 +124,22 @@ namespace Kontecg
 
         }
 
-        private void StartMassTransit()
+        private void SetupBackgroundWorks()
         {
-            var busControl = IocManager.Resolve<IBusControl>();
+            var featureChecker = IocManager.Resolve<IFeatureChecker>();
+            var workManager = IocManager.Resolve<IBackgroundWorkerManager>();
 
-            RetryPolicy<BusHealthResult> retryPolicy = Policy
-                .Handle<Exception>(exception =>
-                {
-                    Logger.Error(
-                        $"Can't check for RabbitMQ endpoint, it seems there is a problem. Exception: {exception}");
-                    return true;
-                })
-                .Or<TaskCanceledException>()
-                .OrResult<BusHealthResult>(r => r.Status == BusHealthStatus.Healthy)
-                .WaitAndRetry(5, retryCount => TimeSpan.FromMilliseconds(5000),
-                    (result, timeSpan, retryCount, context) =>
-                    {
-                        Logger.Warn(
-                            $"MassTransit service starting attempt {retryCount} failed, next attempt in {timeSpan.TotalMilliseconds} ms. Result: {result.Result.Status}");
-                    });
+            if (Configuration.BackgroundJobs.IsJobExecutionEnabled)
+                Configuration.BackgroundJobs.UseHangfire(options => { });
 
-            var healthResult = retryPolicy.Execute(() => busControl.CheckHealth());
+            if (featureChecker.IsEnabled(CoreFeatureNames.CurrencyExchangeRateFeature))
+                workManager.Add(IocManager.Resolve<ExternalExchangeRateProviderWorker>());
 
-            try
-            {
-                if (healthResult.Status != BusHealthStatus.Healthy)
-                    busControl.Start();
-            }
-            catch (RabbitMqConnectionException e)
-            {
-                Logger.Error(e.Message, e.InnerException ?? e);
-            }
+            workManager.Add(IocManager.Resolve<PasswordExpirationBackgroundWorker>());
+            workManager.Add(IocManager.Resolve<MakeInactiveUsersPassiveWorker>());
 
-            IocManager.Release(busControl);
+            if (Configuration.Updates.IsUpdateCheckEnabled)
+                workManager.Add(IocManager.Resolve<UpdateCheckerWorker>());
         }
 
         private void RegisterClient()

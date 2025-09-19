@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using Kontecg.Application.Services.Dto;
+using System;
 using System.Collections.ObjectModel;
 
 namespace Kontecg.ViewModels
@@ -18,5 +19,6 @@ namespace Kontecg.ViewModels
         /// Used to check whether entities are currently being loaded in the background. The property can be used to show the progress indicator.
         /// </summary>
         bool IsLoading { get; }
+
     }
 }
